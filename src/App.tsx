@@ -87,8 +87,8 @@ function Hero() {
       <div className="hero-photo" aria-hidden="true" />
       <div className="hero-circles" aria-hidden="true" />
       <div className="hero-content">
-        <div className="hero-eyebrow">Academia de Pádel · 2026</div>
-        <div className="hero-badge">Nuevas clases 2026</div>
+        <div className="hero-eyebrow">Academia de Pádel</div>
+        <div className="hero-badge">Nuevas clases</div>
         <h1 className="hero-name">
           Gabriel<br /><span className="lime">Buzin</span>
         </h1>
@@ -154,7 +154,7 @@ function Logros() {
             <div className="logro-icon"><Trophy size={22} /></div>
             <div>
               <div className="logro-name">Campeón — Argentina Next Gen Campana</div>
-              <div className="logro-meta">2026</div>
+              <div className="logro-meta">Campeón</div>
             </div>
           </div>
           <div className="logro-card gold">
@@ -212,7 +212,7 @@ function Clases() {
               Los horarios se coordinan según disponibilidad.
             </p>
             <div>
-              <div className="cal-label">Calendario 2026</div>
+              <div className="cal-label">Calendario</div>
               <div className="period-row">
                 <div className="period-tag">Período 1 — Mar a Jun</div>
                 <div className="period-tag strike">Julio — receso</div>
@@ -236,7 +236,7 @@ function Aranceles() {
       <div className="container-site reveal" ref={r}>
         <div className="eyebrow">Aranceles</div>
         <h2 className="section-title" style={{ color: 'var(--cream)', fontSize: 'clamp(44px,10vw,72px)' }}>
-          Precios 2026
+          Precios
         </h2>
         <div className="pricing-grid">
           <div className="price-card featured">
@@ -325,7 +325,7 @@ function Footer() {
     <footer className="footer" id="contacto" aria-label="Contacto">
       <div className="footer-inner">
         <div>
-          <div className="footer-label-sm">Profesor de Pádel · 2026</div>
+          <div className="footer-label-sm">Profesor de Pádel</div>
           <div className="footer-name">Gabriel<br />Buzin</div>
           <div className="footer-subtitle">Clases individuales · parejas · grupos</div>
         </div>
