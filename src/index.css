@@ -530,6 +530,16 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   gap: 8px;
   margin-top: 32px;
 }
+.cancha-photo:nth-child(1),
+.cancha-photo:nth-child(4) {
+  grid-column: 1 / -1;
+}
+@media (min-width: 640px) {
+  .cancha-photo:nth-child(1),
+  .cancha-photo:nth-child(4) {
+    grid-column: auto;
+  }
+}
 .cancha-photo {
   overflow: hidden;
   border-radius: 4px;
