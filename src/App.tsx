@@ -31,6 +31,41 @@ function useReveal() {
   return ref
 }
 
+function useParallaxBg(speed = 0.2, baseY = '15%') {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const handle = () => {
+      const rect = el.getBoundingClientRect()
+      const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed
+      el.style.backgroundPositionY = `calc(${baseY} + ${offset}px)`
+    }
+    window.addEventListener('scroll', handle, { passive: true })
+    handle()
+    return () => window.removeEventListener('scroll', handle)
+  }, [speed, baseY])
+  return ref
+}
+
+function useParallaxImg(speed = 0.15) {
+  const ref = useRef<HTMLImageElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const handle = () => {
+      const wrap = el.parentElement!
+      const rect = wrap.getBoundingClientRect()
+      const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * speed
+      el.style.transform = `translateY(${offset}px)`
+    }
+    window.addEventListener('scroll', handle, { passive: true })
+    handle()
+    return () => window.removeEventListener('scroll', handle)
+  }, [speed])
+  return ref
+}
+
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
@@ -82,9 +117,10 @@ function Nav() {
 }
 
 function Hero() {
+  const parallaxRef = useParallaxBg(0.25)
   return (
     <section className="hero" id="inicio" aria-label="Inicio">
-      <div className="hero-photo" aria-hidden="true" />
+      <div className="hero-photo" aria-hidden="true" ref={parallaxRef} />
       <div className="hero-circles" aria-hidden="true" />
       <div className="hero-content">
         <div className="hero-eyebrow">Academia de Pádel</div>
@@ -110,7 +146,7 @@ function SobreMi() {
       <div className="container-site">
         <div className="sobre-grid">
           <div className="sobre-img-wrap reveal" ref={r1}>
-            <img src="/images/sobremi.jpeg" alt="Gabriel Buzin entrenando en el gimnasio" loading="lazy" />
+            <img src="/images/sobremi.jpeg" alt="Gabriel Buzin entrenando en el gimnasio" loading="lazy" ref={useParallaxImg(0.12)} />
           </div>
           <div className="sobre-text reveal reveal-delay" ref={r2}>
             <div className="eyebrow on-light">Sobre mí</div>
@@ -135,12 +171,14 @@ function SobreMi() {
 
 function Logros() {
   const r = useReveal()
+  const parallaxRef = useParallaxBg(0.2, '30%')
   return (
     <section className="sec-dark" id="logros" aria-label="Logros">
       <div
         className="logros-photo-bg"
         style={{ backgroundImage: 'url(/images/logros.jpeg)' }}
         aria-hidden="true"
+        ref={parallaxRef}
       />
       <div className="container-site logros-content reveal" ref={r}>
         <div className="logros-title-row">
@@ -192,7 +230,7 @@ function Clases() {
       <div className="container-site">
         <div className="clases-grid">
           <div className="clases-photo-wrap reveal" ref={r1}>
-            <img src="/images/clases.jpeg" alt="Gabriel Buzin frente a la red" loading="lazy" />
+            <img src="/images/clases.jpeg" alt="Gabriel Buzin frente a la red" loading="lazy" ref={useParallaxImg(0.12)} />
           </div>
           <div className="clases-content reveal reveal-delay" ref={r2}>
             <div className="eyebrow on-light">Modalidad</div>
@@ -214,14 +252,42 @@ function Clases() {
             <div>
               <div className="cal-label">Calendario</div>
               <div className="period-row">
-                <div className="period-tag">Período 1 — Mar a Jun</div>
-                <div className="period-tag strike">Julio — receso</div>
-                <div className="period-tag">Período 2 — Ago a Nov</div>
+                <div className="period-tag">Inicio: Julio — fecha a confirmar</div>
               </div>
               <div className="cal-note">
-                Inicio: semana del 9 de marzo · Pago adelantado del 1 al 10 de cada mes
+                Pago adelantado del 1 al 10 de cada mes
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Canchas() {
+  const r1 = useReveal()
+  const r2 = useReveal()
+  return (
+    <section className="sec-dark" id="canchas" aria-label="Canchas">
+      <div className="container-site">
+        <div className="canchas-header reveal" ref={r1}>
+          <div className="eyebrow">Dónde damos clases</div>
+          <h2 className="section-title" style={{ color: 'var(--cream)', fontSize: 'clamp(44px,10vw,72px)' }}>Fair Play LSM</h2>
+          <div className="cancha-location">Libertador San Martín · Entre Ríos</div>
+        </div>
+        <div className="cancha-grid reveal reveal-delay" ref={r2}>
+          <div className="cancha-photo">
+            <img src="/images/c1.jpeg" alt="Fair Play LSM al atardecer" loading="lazy" ref={useParallaxImg(0.1)} />
+          </div>
+          <div className="cancha-photo">
+            <img src="/images/c2.jpeg" alt="Cancha Fair Play LSM vista angular" loading="lazy" ref={useParallaxImg(0.1)} />
+          </div>
+          <div className="cancha-photo">
+            <img src="/images/c5.jpeg" alt="Fair Play LSM lifestyle" loading="lazy" ref={useParallaxImg(0.1)} />
+          </div>
+          <div className="cancha-photo">
+            <img src="/images/c3.jpeg" alt="Fair Play LSM de noche" loading="lazy" ref={useParallaxImg(0.1)} />
           </div>
         </div>
       </div>
@@ -247,6 +313,7 @@ function Aranceles() {
               <span className="price-amount"><sup>$</sup>18.000</span>
             </div>
             <p className="price-note">1 alumno · pago por clase tomada</p>
+            <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20individuales.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
           <div className="price-card">
             <div className="price-card-eyebrow">Mensual</div>
@@ -260,6 +327,7 @@ function Aranceles() {
               <span className="price-amount"><sup>$</sup>65.000</span>
             </div>
             <p className="price-note">2 alumnos · cuota mensual</p>
+            <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20de%20parejas.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
           <div className="price-card">
             <div className="price-card-eyebrow">Mensual</div>
@@ -273,6 +341,7 @@ function Aranceles() {
               <span className="price-amount"><sup>$</sup>45.000</span>
             </div>
             <p className="price-note">Hasta 4 alumnos · grupos por nivel</p>
+            <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20grupales.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
         </div>
         <div className="payment-box">
@@ -285,7 +354,7 @@ function Aranceles() {
             <div style={{ fontSize: 11, color: 'rgba(247,245,240,0.38)', textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 700, marginBottom: 5, fontFamily: "'Barlow Condensed', sans-serif" }}>
               Mercado Pago
             </div>
-            <div className="payment-alias">Alias a confirmar</div>
+            <div className="payment-alias">gaby.buzin.mp</div>
             <div style={{ fontSize: 11, color: 'rgba(247,245,240,0.3)', marginTop: 4 }}>
               Coordinar al inscribirse
             </div>
@@ -313,6 +382,9 @@ function Sponsors() {
           </div>
           <div className="sponsor-logo">
             <img src="/images/HB.png" alt="HB Mecánica Integral del Automotor" loading="lazy" />
+          </div>
+          <div className="sponsor-logo">
+            <img src="/images/reebok.png" alt="Reebok" loading="lazy" style={{ maxWidth: 140, maxHeight: 70 }} />
           </div>
         </div>
       </div>
@@ -356,6 +428,7 @@ export default function App() {
         <SobreMi />
         <Logros />
         <Clases />
+        <Canchas />
         <Aranceles />
         <Sponsors />
       </main>

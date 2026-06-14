@@ -319,10 +319,11 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
 }
 .sobre-img-wrap img {
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
   object-position: center top;
   display: block;
+  will-change: transform;
 }
 
 .sobre-text .section-title {
@@ -425,10 +426,11 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
 }
 .clases-photo-wrap img {
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
   object-position: center 20%;
   display: block;
+  will-change: transform;
 }
 
 .clases-content .section-title {
@@ -500,6 +502,48 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   color: var(--muted);
 }
 
+/* ─── CANCHAS ─── */
+.canchas-header { margin-bottom: 32px; }
+.cancha-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,245,240,0.42);
+  margin-top: 12px;
+}
+.cancha-location::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+}
+.cancha-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 32px;
+}
+.cancha-photo {
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 4/3;
+}
+.cancha-photo img {
+  width: 100%;
+  height: 115%;
+  margin-top: -7.5%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+}
+
 /* ─── ARANCELES ─── */
 .pricing-grid {
   display: grid;
@@ -514,11 +558,28 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   border-radius: 4px;
   padding: 24px 22px;
   background: rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  cursor: default;
 }
+.price-card:hover,
 .price-card.featured {
   border-color: var(--lime);
   background: rgba(197,241,53,0.05);
 }
+.price-card:hover .price-card-eyebrow,
+.price-card.featured .price-card-eyebrow { color: var(--lime); }
+.price-card:hover .price-amount,
+.price-card.featured .price-amount { color: var(--lime); }
+
+/* When any card in the grid is hovered, reset featured to default */
+.pricing-grid:has(.price-card:hover) .price-card.featured:not(:hover) {
+  border-color: rgba(247,245,240,0.1);
+  background: rgba(255,255,255,0.03);
+}
+.pricing-grid:has(.price-card:hover) .price-card.featured:not(:hover) .price-card-eyebrow { color: rgba(247,245,240,0.38); }
+.pricing-grid:has(.price-card:hover) .price-card.featured:not(:hover) .price-amount { color: var(--cream); }
 
 .price-card-eyebrow {
   font-family: 'Barlow Condensed', sans-serif;
@@ -528,8 +589,8 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   text-transform: uppercase;
   color: rgba(247,245,240,0.38);
   margin-bottom: 5px;
+  transition: color 0.25s ease;
 }
-.price-card.featured .price-card-eyebrow { color: var(--lime); }
 
 .price-card-name {
   font-family: 'Barlow Condensed', sans-serif;
@@ -558,13 +619,35 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   color: var(--cream);
   letter-spacing: -0.3px;
 }
-.price-card.featured .price-amount { color: var(--lime); }
 .price-amount sup { font-size: 13px; vertical-align: super; font-weight: 600; }
+.price-amount { transition: color 0.25s ease; }
 
 .price-note {
   font-size: 11.5px;
   color: rgba(247,245,240,0.35);
   margin-top: 10px;
+  margin-bottom: auto;
+}
+
+.btn-consultame {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 0;
+  border-radius: 4px;
+  background: var(--lime);
+  color: var(--dark);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-consultame:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
 }
 
 .payment-box {
