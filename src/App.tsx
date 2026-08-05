@@ -306,7 +306,7 @@ function Aranceles() {
         </h2>
         <div className="pricing-grid">
           <div className="price-card featured">
-            <div className="price-card-eyebrow">Cuota por clase</div>
+            <div className="price-card-eyebrow"><span className="price-card-highlight">Cuota</span> por clase</div>
             <div className="price-card-name">Individual</div>
             <div className="price-row">
               <span className="price-freq">Precio por clase</span>
@@ -316,7 +316,7 @@ function Aranceles() {
             <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20individuales.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
           <div className="price-card">
-            <div className="price-card-eyebrow">Cuota <span className="price-card-highlight">mensual</span></div>
+            <div className="price-card-eyebrow"><span className="price-card-highlight">Cuota mensual</span></div>
             <div className="price-card-name">Parejas</div>
             <div className="price-row">
               <span className="price-freq">1× por semana</span>
@@ -330,7 +330,7 @@ function Aranceles() {
             <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20de%20parejas.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
           <div className="price-card">
-            <div className="price-card-eyebrow">Cuota <span className="price-card-highlight">mensual</span></div>
+            <div className="price-card-eyebrow"><span className="price-card-highlight">Cuota mensual</span></div>
             <div className="price-card-name">Grupal</div>
             <div className="price-row">
               <span className="price-freq">1× por semana</span>
@@ -343,6 +343,10 @@ function Aranceles() {
             <p className="price-note">3 o 4 personas · grupos por nivel</p>
             <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20grupales.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
+        </div>
+        <div className="pricing-notices" role="note" aria-label="Información importante sobre las clases">
+          <p>El precio de la cancha ya está incluido en el valor de la clase.</p>
+          <p>Los días feriados no se dictan clases.</p>
         </div>
         <div className="payment-box">
           <div>
