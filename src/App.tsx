@@ -252,7 +252,7 @@ function Clases() {
             <div>
               <div className="cal-label">Calendario</div>
               <div className="period-row">
-                <div className="period-tag">Inicio: Julio — fecha a confirmar</div>
+                <div className="period-tag">Inicio: Agosto</div>
               </div>
               <div className="cal-note">
                 Pago adelantado del 1 al 10 de cada mes
