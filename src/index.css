@@ -602,6 +602,10 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   transition: color 0.25s ease;
 }
 
+.price-card-eyebrow .price-card-highlight {
+  color: var(--lime);
+}
+
 .price-card-name {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 28px;
@@ -630,6 +634,15 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
   letter-spacing: -0.3px;
 }
 .price-amount sup { font-size: 13px; vertical-align: super; font-weight: 600; }
+.price-amount small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: right;
+  text-transform: uppercase;
+}
 .price-amount { transition: color 0.25s ease; }
 
 .price-note {

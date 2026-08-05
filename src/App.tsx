@@ -153,7 +153,7 @@ function SobreMi() {
             <div className="divider" />
             <h2 className="section-title">Mi historia</h2>
             <p className="sobre-body" style={{ marginTop: 20 }}>
-              Me llamo Gabriel Buzin, tengo 16 años y me formé en la academia de{' '}
+              Me llamo Gabriel Buzin, tengo 17 años y me formé en la academia de{' '}
               <strong>Gustavo Pratto en Valladolid, España.</strong>{' '}
               Compito activamente y ese recorrido es lo que hoy vuelco en mis alumnos.
             </p>
@@ -306,7 +306,7 @@ function Aranceles() {
         </h2>
         <div className="pricing-grid">
           <div className="price-card featured">
-            <div className="price-card-eyebrow">Por clase</div>
+            <div className="price-card-eyebrow">Cuota por clase</div>
             <div className="price-card-name">Individual</div>
             <div className="price-row">
               <span className="price-freq">Precio por clase</span>
@@ -316,31 +316,31 @@ function Aranceles() {
             <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20individuales.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
           <div className="price-card">
-            <div className="price-card-eyebrow">Mensual</div>
+            <div className="price-card-eyebrow">Cuota <span className="price-card-highlight">mensual</span></div>
             <div className="price-card-name">Parejas</div>
             <div className="price-row">
               <span className="price-freq">1× por semana</span>
-              <span className="price-amount"><sup>$</sup>40.000</span>
+              <span className="price-amount"><sup>$</sup>40.000 <small>por persona</small></span>
             </div>
             <div className="price-row">
               <span className="price-freq">2× por semana</span>
-              <span className="price-amount"><sup>$</sup>65.000</span>
+              <span className="price-amount"><sup>$</sup>65.000 <small>por persona</small></span>
             </div>
             <p className="price-note">2 alumnos · cuota mensual</p>
             <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20de%20parejas.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
           <div className="price-card">
-            <div className="price-card-eyebrow">Mensual</div>
+            <div className="price-card-eyebrow">Cuota <span className="price-card-highlight">mensual</span></div>
             <div className="price-card-name">Grupal</div>
             <div className="price-row">
               <span className="price-freq">1× por semana</span>
-              <span className="price-amount"><sup>$</sup>32.000</span>
+              <span className="price-amount"><sup>$</sup>32.000 <small>por persona</small></span>
             </div>
             <div className="price-row">
               <span className="price-freq">2× por semana</span>
-              <span className="price-amount"><sup>$</sup>45.000</span>
+              <span className="price-amount"><sup>$</sup>45.000 <small>por persona</small></span>
             </div>
-            <p className="price-note">Hasta 4 alumnos · grupos por nivel</p>
+            <p className="price-note">3 o 4 personas · grupos por nivel</p>
             <a className="btn-consultame" href="https://wa.me/5493434525551?text=Hola%20Gabriel%2C%20me%20interesa%20inscribirme%20en%20clases%20grupales.%20%C2%BFPod%C3%A9s%20darme%20m%C3%A1s%20info%3F" target="_blank" rel="noopener noreferrer">Consultame</a>
           </div>
         </div>
