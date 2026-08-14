@@ -390,6 +390,9 @@ function Sponsors() {
           <div className="sponsor-logo">
             <img src="/images/reebok.png" alt="Reebok" loading="lazy" style={{ maxWidth: 140, maxHeight: 70 }} />
           </div>
+          <div className="sponsor-logo">
+            <img src="/images/ciros.png" alt="Ciros" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
